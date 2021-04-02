@@ -1,14 +1,23 @@
-import React from 'react';
-import Song from './../Song/Song';
+import React from "react";
+import {useHistory} from "react-router-dom";
 
-const SongsList = () => {
-	const song1 = ['Verso 1', 'Verso 2'];
+const SongsList = ({songs}) => {
+  const history = useHistory();
+  const handleClick = song => {
+    console.log("You clicked ", song);
 
-	return (
-		<>
-			<Song title='Namaste' stanzas={song1} />
-		</>
-	)
-}
+    history.push(`/song/${song.id}`);
+  };
+
+  return (
+    <>
+      {songs.map(song => (
+        <h2 key={song.id} onClick={() => handleClick(song)}>
+          {song.title}
+        </h2>
+      ))}
+    </>
+  );
+};
 
 export default SongsList;
