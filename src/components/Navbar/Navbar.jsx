@@ -6,6 +6,11 @@ const Navbar = () => {
     <>
       <ul>
         <li>
+          <NavLink exact to="/" activeClassName="active-link">
+            Inicio
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/authors" activeClassName="active-link">
             Autores
           </NavLink>
