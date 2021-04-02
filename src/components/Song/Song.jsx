@@ -3,9 +3,8 @@ import {SongsData} from "../../songs.data";
 
 const Song = ({match}) => {
   const {id} = match.params;
-  const songData = SongsData.filter(s => s.id == id);
-  const {title, author, stanzas, picture} = songData[0];
-  console.log(title, author, stanzas, picture);
+  const songData = SongsData.filter(s => s.id == id)[0];
+  const {title, author, stanzas, picture} = songData;
 
   return (
     <>
