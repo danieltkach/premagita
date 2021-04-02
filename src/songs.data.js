@@ -1,7 +1,7 @@
 export const SongsData = [
   {
     id: 0,
-    title: "Guruv-astaka",
+    title: "Guruvastaka",
     author: "",
     stanzas: [],
     picture: "",
