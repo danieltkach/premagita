@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import withLoader from "./../withLoader";
 
 const AuthorsList = ({authors}) => {
   const handleClick = author => {
@@ -19,4 +20,4 @@ const AuthorsList = ({authors}) => {
   );
 };
 
-export default AuthorsList;
+export default withLoader("authors")(AuthorsList);

@@ -1,6 +1,7 @@
 import React from "react";
 // import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
+import withLoader from "./../withLoader";
 
 const SongsList = ({songs}) => {
   // const history = useHistory();
@@ -23,4 +24,4 @@ const SongsList = ({songs}) => {
   );
 };
 
-export default SongsList;
+export default withLoader("songs")(SongsList);
