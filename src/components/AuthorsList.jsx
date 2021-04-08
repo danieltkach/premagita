@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import withLoader from "./../withLoader";
+import withLoader from "./withLoader";
 
 const AuthorsList = ({authors}) => {
   const handleClick = author => {

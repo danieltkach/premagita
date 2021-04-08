@@ -34,4 +34,25 @@ export const SongsData = [
     stanzas: [],
     picture: "",
   },
+  {
+    id: 5,
+    title: "s 5",
+    author: "",
+    stanzas: [],
+    picture: "",
+  },
+  {
+    id: 6,
+    title: "s 6",
+    author: "",
+    stanzas: [],
+    picture: "",
+  },
+  {
+    id: 7,
+    title: "s 7",
+    author: "",
+    stanzas: [],
+    picture: "",
+  },
 ];

@@ -1,7 +1,19 @@
-body {
+* {
   margin: 0;
-  font-family: cursive;
+  padding: 0;
   box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  color: white;
+  text-decoration: none;
 }
