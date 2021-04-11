@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
+import useTheme from "./../hooks/useTheme";
+import {ThemeContext} from "../context/ThemeContext";
 
 const Navbar = () => {
+  const {toggleTheme} = useContext(ThemeContext);
   return (
     <Container>
       <NavLink exact to="/" activeClassName="active-link">
@@ -14,6 +17,10 @@ const Navbar = () => {
       <NavLink to="/songs" activeClassName="active-link">
         Canciones
       </NavLink>
+      <div>
+        <input onChange={toggleTheme} type="checkbox" id="color" />
+        <label htmlFor="color">Switch</label>
+      </div>
     </Container>
   );
 };
