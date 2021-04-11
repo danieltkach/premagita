@@ -1,11 +1,11 @@
-import React from "react";
-// import {useHistory} from "react-router-dom";
+import React, {useContext} from "react";
 import withLoader from "./withLoader";
 import SongCard from "./SongCard";
 import styled from "styled-components";
+import {SongsContext} from "../context";
 
-const SongsList = ({songs}) => {
-  // const history = useHistory();
+const SongsList = () => {
+  const songs = useContext(SongsContext);
   return (
     <Container>
       {songs.map(song => (
@@ -15,7 +15,7 @@ const SongsList = ({songs}) => {
   );
 };
 
-export default withLoader("songs")(SongsList);
+export default SongsList;
 
 const Container = styled.div`
   padding: 10px;

@@ -5,11 +5,13 @@ import SongsList from "./components/SongsList";
 import Song from "./components/Song";
 import AuthorsList from "./components/AuthorsList";
 import Author from "./components/Author";
-import {SongsData} from "../src/songs.data.js";
 import {AuthorsData} from "../src/authors.data.js";
 import "./App.css";
+import {useContext} from "react";
+import {SongsContext} from "./context";
 
 function App() {
+  const SongsData = useContext(SongsContext);
   return (
     <div className="app-container">
       <header>
@@ -18,9 +20,13 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/songs" component={() => <SongsList songs={SongsData} />} />
+          <Route exact path="/songs" component={() => <SongsList />} />
           <Route path="/song/:id" component={Song} />
-          <Route exact path="/authors" component={() => <AuthorsList authors={AuthorsData} />} />
+          <Route
+            exact
+            path="/authors"
+            component={() => <AuthorsList authors={AuthorsData} />}
+          />
           <Route path="/author/:id" component={Author} />
           <Route
             component={() => (

@@ -1,0 +1,30 @@
+@import-normalize;
+@import "font.css";
+
+*,
+*::before,
+*::after {
+  font-family: Hot Jacket;
+}
+
+body,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background: linear-gradient(
+    66deg,
+    rgba(58, 243, 255, 1) 0%,
+    rgba(137, 66, 255, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 80vh;
+  overflow-y: scroll;
+}
