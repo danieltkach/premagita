@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import withLoader from "./withLoader";
 import SongCard from "./SongCard";
 import styled from "styled-components";
-import {SongsContext} from "../context";
+import {SongsContext} from "../context/SongsContext";
 
 const SongsList = () => {
   const songs = useContext(SongsContext);

@@ -8,7 +8,7 @@ import Author from "./components/Author";
 import {AuthorsData} from "../src/authors.data.js";
 import "./App.css";
 import {useContext} from "react";
-import {SongsContext} from "./context";
+import {SongsContext} from "./context/SongsContext";
 
 function App() {
   const SongsData = useContext(SongsContext);
