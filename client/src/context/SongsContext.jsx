@@ -1,5 +1,5 @@
 import React from "react";
-import {SongsData} from "../songs.data";
+import {SongsData} from "../json data/songs.data";
 const SongsContext = React.createContext(SongsData);
 
 const SongsContextProvider = ({children}) => (

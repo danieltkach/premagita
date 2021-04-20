@@ -5,7 +5,7 @@ import SongsList from "./components/SongsList";
 import Song from "./components/Song";
 import AuthorsList from "./components/AuthorsList";
 import Author from "./components/Author";
-import {AuthorsData} from "../src/authors.data.js";
+import {AuthorsData} from "./json data/authors.data";
 import "./App.css";
 import {useContext} from "react";
 import {SongsContext} from "./context/SongsContext";

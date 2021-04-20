@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {SongsData} from "../songs.data";
+import {SongsData} from "../json data/songs.data";
 
 const Song = ({match}) => {
   const {id} = match.params;

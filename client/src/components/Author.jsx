@@ -1,5 +1,5 @@
 import React from "react";
-import {AuthorsData} from "../authors.data";
+import {AuthorsData} from "../json data/authors.data";
 
 const Author = ({match}) => {
   const {id} = match.params;
