@@ -14,4 +14,4 @@ const config = {
   jwt: {},
 };
 
-export default config;
+module.exports = config;

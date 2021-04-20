@@ -1,3 +1,13 @@
 {
-	"git.ignoreLimitWarning": true
+  "launch": {
+    "configurations": [
+      {
+        "name": "Debug Jasmine",
+        "type": "node",
+        "debugCapture": "std",
+        "outputCapture": "std"
+      }
+    ],
+    "compounds": []
+  }
 }
