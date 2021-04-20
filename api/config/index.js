@@ -10,6 +10,12 @@ const config = {
     host: process.env.DATABASE_HOST,
     name: process.env.DATABASE_NAME,
     connectionString: process.env.CONNECTION_STRING,
+    options: {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+    },
   },
   jwt: {},
 };

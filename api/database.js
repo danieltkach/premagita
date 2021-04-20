@@ -1,30 +1,37 @@
-require("dotenv").config();
-const config = {
-  app: {
-    port: process.env.PORT,
-  },
-  database: {
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    host: process.env.DATABASE_HOST,
-    name: process.env.DATABASE_NAME,
-    connectionString: process.env.CONNECTION_STRING,
-  },
-  jwt: {},
-};
+const config = require("./config/index");
+const Song = require("./models/song");
 
-const MongoClient = require("mongodb").MongoClient;
-const {user, password, host, name} = config.database;
-console.log(user, password, host, name);
-const uri = `mongodb+srv://${user}:${password}@${host}/${name}?retryWrites=true&w=majority;`;
+const DB = require("mongoose");
+const {connectionString: dbString, options: dbOptions} = config.database;
+DB.connect(dbString, dbOptions)
+  .then(() => {
+    console.log("Database connection successful.");
+  })
+  .catch(error => console.log(error.message));
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const testLyric = new Song({
+  name: "Test Song",
+  author: "The Author",
+  book: "The Book",
+  language: "The Language",
+  stanzas: "Some Lyrics here...",
 });
+testLyric
+  .save()
+  .then(doc => {
+    console.log(doc);
+  })
+  .catch(err => console.error(err));
 
-client.connect(err => {
-  const collection = client.db(name).collection("songs");
-  console.log(collection.find());
-  client.close();
-});
+module.exports = DB;
+
+// const connection = DB.connection;
+//   connection.on("error", console.error.bind(console, "connection error:"));
+//   connection.once("open", function () {
+//     connection.db.collection("songs", function (err, collection) {
+//       collection.find({}).toArray(function (err, data) {
+//         console.log(data);
+//         res.status(200).json(data);
+//       });
+//     });
+//   });
