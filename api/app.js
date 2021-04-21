@@ -1,15 +1,37 @@
 const express = require("express");
 const app = express();
 const PORT = 3001;
-const DB = require("./database");
+require("./database");
+const Song = require("./models/Song");
 
-app.get("/api", (req, res) => {
-  res.status(200).json({id: "1", message: "Premagita API response."});
-});
+let songsFromDB = [];
+Song.find()
+  .then(data => {
+    songsFromDB = data;
+  })
+  .catch(error => console.log(error.message));
 
-app.get("/test", async (req, res) => {
-  res.status(200).json("/test");
-});
+const getAllSongs = (req, res) => {
+  const songsData = {
+    status: "success",
+    results: songsFromDB.length,
+    data: {
+      songs: songsFromDB,
+    },
+  };
+  return res.json(songsData);
+};
+
+const modifySong = () => {};
+const createSong = () => {};
+const deleteSong = () => {};
+
+app
+  .route("/api/songs")
+  .get(getAllSongs)
+  .post(createSong)
+  .patch(modifySong)
+  .delete(deleteSong);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
