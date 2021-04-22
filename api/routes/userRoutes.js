@@ -1,16 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
-// Dabatabase ---
-// letusersFromDB = [];
-// Load user data here.
-
-// Controllers ---
-const getAllUsers = () => {};
-const createUser = () => {};
-const getUser = () => {};
-const updateUser = () => {};
-const deleteUser = () => {};
+const {
+  getAllUsers,
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+} = require("../controllers/userController");
 
 // Routes ---
 router.route("/").get(getAllUsers).post(createUser);
