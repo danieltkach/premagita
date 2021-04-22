@@ -1,38 +1,23 @@
+// Express ---
+const PORT = 3001;
 const express = require("express");
 const app = express();
-const PORT = 3001;
-require("./database");
-const Song = require("./models/Song");
+const morgan = require("morgan");
+app.use(morgan("dev"));
+app.use(express.json());
+app.use((req, res, next) => {
+  console.log("Hello from the global middleware!");
+  next();
+});
 
-let songsFromDB = [];
-Song.find()
-  .then(data => {
-    songsFromDB = data;
-  })
-  .catch(error => console.log(error.message));
+// Routers ---
+const songRouter = require("./routes/songRoutes");
+app.use("/api/songs", songRouter);
 
-const getAllSongs = (req, res) => {
-  const songsData = {
-    status: "success",
-    results: songsFromDB.length,
-    data: {
-      songs: songsFromDB,
-    },
-  };
-  return res.json(songsData);
-};
+const userRouter = require("./routes/userRoutes");
+app.use("/api/users", userRouter);
 
-const modifySong = () => {};
-const createSong = () => {};
-const deleteSong = () => {};
-
-app
-  .route("/api/songs")
-  .get(getAllSongs)
-  .post(createSong)
-  .patch(modifySong)
-  .delete(deleteSong);
-
+// Server
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
