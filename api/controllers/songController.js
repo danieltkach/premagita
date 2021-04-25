@@ -21,7 +21,22 @@ getAllSongs = (req, res) => {
   return res.json(songsData);
 };
 
-createSong = (req, res) => {
+createSong = async (req, res) => {
+  try {
+    const newSong = await Song.create(req.body);
+    return res.status(200).json({
+      status: "success",
+      data: {
+        song: newSong,
+      },
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: "error",
+      message: error,
+    });
+  }
+
   const {name, author, book, language, stanzas} = req.body;
   const newSong = new Song({
     name,
