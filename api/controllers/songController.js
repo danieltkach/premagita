@@ -34,9 +34,12 @@ createSong = (req, res) => {
     .save()
     .then(doc => {
       console.log(doc);
-      res.status(200).json(doc);
+      return res.status(200).json(doc);
     })
-    .catch(err => console.error(err));
+    .catch(error => {
+      console.error(error);
+      return res.status(400).json({error});
+    });
 };
 
 getSong = () => {};
