@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+}
+
+.info,
+.stanzas_container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  padding: 20px;
+}

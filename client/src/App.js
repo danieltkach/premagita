@@ -9,6 +9,7 @@ import {AuthorsData} from "./json data/authors.data";
 import "./App.css";
 import {useContext} from "react";
 import {SongsContext} from "./context/SongsContext";
+import SettingsScreen from "./components/SettingsScreen";
 
 function App() {
   const SongsData = useContext(SongsContext);
@@ -28,6 +29,7 @@ function App() {
             component={() => <AuthorsList authors={AuthorsData} />}
           />
           <Route path="/author/:id" component={Author} />
+          <Route path="/settings" component={SettingsScreen} />
           <Route
             component={() => (
               <div>

@@ -17,6 +17,9 @@ const Navbar = () => {
       <NavLink to="/songs" activeClassName="active-link">
         Canciones
       </NavLink>
+      <NavLink to="/settings" activeClassName="active-link">
+        Configuración
+      </NavLink>
       <div>
         <input onChange={toggleTheme} type="checkbox" id="color" />
         <label htmlFor="color">Switch</label>
